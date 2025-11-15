@@ -1,0 +1,6 @@
+Nombre de mots: 10
+
+Top 5 mots les plus frequents:['world', 'g', 'hello', 'wo', 'w']
+
+Texte nettoye:
+hello world world wo w g g d o l

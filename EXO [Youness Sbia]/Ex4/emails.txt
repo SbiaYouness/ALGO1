@@ -1,0 +1,8 @@
+Hello, contact me at john.doe@gmail.com or jane_smith@yahoo.com for more info.
+You can also reach support@company.co.uk!
+Invalid emails: @nouser.com, missing@domain, notanemail
+More contacts: alice123@outlook.com, bob.wilson@hotmail.fr
+Special: test.user+tag@gmail.com
+Another line with mike@example.org and sarah@test.io
+Bad ones: user@, @domain.com, user space@gmail.com
+Final: contact@protonmail.com, info@business.net

@@ -20,10 +20,10 @@ def longueurmoyen(data):
     mot=data.split(" ")
     longueur= [len(m) for m in mot]
     moy = sum(longueur)/len(longueur)
-    occ = occmots(data)  
+    occ = occmots(data)
     occMax = max(occ.values())
-    l = [k for k,v in occ.items() if v== occMax ] 
-    return l,occMax, moy
+    l = [k for k,v in occ.items() if v== occMax]
+    return l, occMax, moy
 
 def occmots(data):
     dict={}
@@ -65,7 +65,7 @@ def stats_longueur(data):
 
 def topMots(data):
     occ = occmots(data)
-    top_10 = sorted(occ.items(), key=lambda x: x[1], reverse=True)[:10] #trie par tuple[1]=>value
+    top_10 = sorted(occ.items(), key=lambda x: x[1], reverse=True)[:10] #trie par tuple[1]=>value (tuple[0]=>key)
     return top_10
 
 def phrasesLongues(data):
