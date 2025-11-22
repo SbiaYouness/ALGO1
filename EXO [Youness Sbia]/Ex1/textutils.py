@@ -22,10 +22,10 @@ def most_common_words(text:str,top=5):
         else:
             freq[mot]=1
     
-    l= list(freq.items()) #sort doesnt return anything it changes the current list
-    l.sort(key=lambda x: x[1], reverse=True) 
+    l= list(freq.items()) # [(,),(,),...]
+    l.sort(key=lambda x: x[1], reverse=True) #sort doesnt return anything it changes the current list
     return [x[0] for x in l][:top]
-    
+
 
 print(most_common_words("hello world! world wo W g g D o l"))
 
@@ -38,5 +38,5 @@ def save_report(filename:str, content:str):
         file.write(f"Top 5 mots les plus frequents:{top_words}\n")
         file.write(f"\nTexte nettoye:\n{cleaned}\n")
 
-save_report(r"c:\Users\lampr\OneDrive\Documents\aa\ALL\ALGO\tps\tp1\EXO [Youness Sbia]\report.txt",
+save_report(r"report.txt",
             "hello world! world wo W g g D o l")

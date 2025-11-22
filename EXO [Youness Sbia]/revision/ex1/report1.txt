@@ -1,0 +1,9 @@
+nombre de mots: 11
+top 5 mots:
+N1 => world
+N2 => hello
+N3 => w
+N4 => worldw
+N5 => oo
+texte nettoye:
+hello world world worldw w w hello hello oo world world

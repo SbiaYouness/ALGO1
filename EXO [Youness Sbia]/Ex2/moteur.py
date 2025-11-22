@@ -14,4 +14,5 @@ context={
     "username":"ali",
     "date": "10/05/2025"
 }
-render_template('template.txt','after.txt', context) 
+
+render_template('template.txt','after.txt', context)

@@ -1,0 +1,2 @@
+Bonjour {{username}},
+Nous sommes le {{date}}.
