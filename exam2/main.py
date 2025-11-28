@@ -28,18 +28,18 @@ class Evenement:
 
 class Agenda:
     def __init__(self) -> None:
-        self.evenements = []
+        self.__evenements = []
     
     def ajouter_evenement(self, evenement: Evenement) -> None:
-        for e in self.evenements:
+        for e in self.__evenements:
             if e.titre == evenement.titre and e.date == evenement.date:
                 raise ValueError("Un evenement avec le meme titre et la meme date existe deja")
-        self.evenements.append(evenement)
+        self.__evenements.append(evenement)
 
     def rechercher(self, date=None, mot_cle=None) -> list[Evenement]:
         resultats = []
 
-        for evenement in self.evenements:
+        for evenement in self.__evenements:
             if date and evenement.date == date:
                 resultats.append(evenement)
             elif mot_cle and (mot_cle.lower() in evenement.titre.lower() or (evenement.description and mot_cle.lower() in evenement.description.lower())):
@@ -47,9 +47,9 @@ class Agenda:
         return resultats
 
     def supprimer(self, titre:str, date:datetime.date) -> None:
-        for evenement in self.evenements:   
+        for evenement in self.__evenements:   
             if evenement.titre == titre and evenement.date == date:
-                self.evenements.remove(evenement)
+                self.__evenements.remove(evenement)
                 return
         raise KeyError("Evenement non trouve pour suppression")
 
@@ -57,12 +57,12 @@ class Agenda:
 
     def statistiques(self) -> dict:
         stats = {
-            "total": len(self.evenements),
-            "passes": sum(1 for e in self.evenements if e.est_passe()),
-            "futurs": sum(1 for e in self.evenements if not e.est_passe()),
+            "total": len(self.__evenements),
+            "passes": sum(1 for e in self.__evenements if e.est_passe()),
+            "futurs": sum(1 for e in self.__evenements if not e.est_passe()),
             "par_annee":{
-                year: sum(1 for e in self.evenements if e.date.year == year)
-                for year in set(e.date.year for e in self.evenements) #set to avoid duplicate years 
+                year: sum(1 for e in self.__evenements if e.date.year == year)
+                for year in set(e.date.year for e in self.__evenements) #set to avoid duplicate years 
             }
         }
         return stats
@@ -78,7 +78,7 @@ class Agenda:
             return
 
         with open(chemin, 'w') as f:
-            for evenement in self.evenements: 
+            for evenement in self.__evenements: 
                 line = f"{evenement.titre};{evenement.date.isoformat()};{evenement.description or ''}\n"
                 f.write(line)
 
