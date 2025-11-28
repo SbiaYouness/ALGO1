@@ -113,7 +113,7 @@ class Agenda:
 def charger_plage(agenda:Agenda, date_debut:datetime.date, date_fin:datetime.date) -> list[Evenement]:
     if date_debut > date_fin:
         raise ValueError("La date debut superieure a la date fin")
-    #utilise la methode rechercher .n'utilise pas l'attribut directement
+
     resultats = []
     for i in range((date_fin - date_debut).days + 1):
         date_courante = date_debut + datetime.timedelta(days=i)
@@ -124,7 +124,6 @@ def charger_plage(agenda:Agenda, date_debut:datetime.date, date_fin:datetime.dat
 #Partie 6
 
 class EvenementRecurrent(Evenement):
-    #frequence:"quotidien","hebdo","mensuel" 
     def __init__(self, titre:str, date:datetime.date, frequence:str, occurrences:int, description:str = None)-> None:
         super().__init__(titre, date, description)
         self.frequence = frequence  #en jours
@@ -158,7 +157,8 @@ class EvenementRecurrent(Evenement):
                 current_date += d
         return evenements
     
-#simple test of the three classes and their methods
+#TESTs
+
 e1 = Evenement("Anniversaire", datetime.date(2023, 5, 20), "Fete d'anniversaire")
 e2 = Evenement("Reunion", datetime.date(2023, 6, 15), "Reunion de travail")
 agenda = Agenda()
@@ -188,15 +188,3 @@ occurrences = Eventocc.generer_occurrences()
 
 for evt in occurrences:
     print(evt)
-
-
-
-
-# d = datetime.timedelta(weeks=1)
-
-# aujourd_hui = datetime.date.today()
-# for i in range(5):
-#     aujourd_hui += d
-#     print(aujourd_hui)
-
-# print(5//12)
